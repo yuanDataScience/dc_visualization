@@ -497,25 +497,24 @@ async function plot(){
 
     //Series chart
     /**************************************************************************************************
-     * 
-     * 
-     * 
+     * 1. in series chart, all series share the same x axis and have the same chart type
+     * 2. define the "basic" dimension consisting of both x axis and series dimension as an array
+     * 3. define a separate dimension of the x axis
+     * 4. define the value using cf group command based on the basic, array dimension
+     * 5. initialize a dc.SeriesChart obj
+     * 6. in .chart() method, define the chart type, and othe parameters of the series chart
+     * 7. define group()
+     * 8. define keyAccessor(), valueAccessor() and seriesAccessor()
+     * 9. define x scales
+     * 10.define legend, which automatically matches the series by colors
      * ********************************************************************************************** */ 
     const runDimension = facts.dimension( d => [d.Expt, d.Run]);
-    const runGroup = runDimension.group().reduceSum( d => d.Speed) ;
-    
+    const runGroup = runDimension.group().reduceSum( d => d.Speed) ;    
 
-    const runDimensionLine = facts.dimension( d => d.Run);
-    
+    const runDimensionLine = facts.dimension( d => d.Run);    
     const speedGroup = runDimensionLine.group().reduceSum(d => d.Speed/5);
     const scatterGroup = runDimension.group().reduceSum( d => d.Speed);
     
-    
-    /***************************************************************************************************
-     * 
-     * 
-     * 
-     ****************************************************************************************************/
     seriesChart
         .width(1360).height(300)
         .margins({top:40,bottom:60,right:80,left:60})
@@ -531,9 +530,11 @@ async function plot(){
 
     
     /*******************************************************************************************************
-     * 
-     * 
-     * 
+     * 1. compsite chart combines different chart types, and don't have to share the same x axis
+     * 2. initialize compositeChart obj in dc. Define dimension, whcih will be inherited by child charts by default
+     * 3. define scales, if needed
+     * 4. in compose command, include an array of the sepecific child charts by new dc.chart()
+     * 5. transfer the compositeChart obj in the new dc.chart() command, and define dimension and group
      ********************************************************************************************************/
 
     compChart
