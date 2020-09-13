@@ -286,7 +286,7 @@ bubbleChart
 
 // datatable
 /*********************************************************************** 
-//use a unique key so that each record will be grouped as its own group
+//do not have to use a unique key. Can use any dimension.
 //in datatable, group is different from the group in CF. Here group is
 //used to group the records in the table
 **********************************************************************/    
@@ -294,8 +294,9 @@ bubbleChart
 const dataTable = new dc.DataTable("#dataTable")
 dataTable
     .width(1360).height(300)
-    .dimension(dateDimension)
-    .section(d => d.type)
+    //.dimension(dateDimension)
+     .section(d => d.type)
+    .dimension(typeDimension)
     //.columns(['date','quantity','total','tip','type'])
     .columns([{label:'time', format: d=>d.date.getHours()},'quantity','total','tip','type'])
     .on("renderlet", dataTable => dataTable.selectAll('.dc-table-group').classed('table-info',true))
