@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <!--<link type="text/css" rel="stylesheet" href="css/dc.css" />
+    <link href="https://unpkg.com/dc@4/dist/style/dc.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/4.1.0/style/dc.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+</head>
+<body>
+    
+    <script type="text/javascript" src ="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+    <script type="text/javascript" src ="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+   <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+   <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/dc/4.1.0/dc.min.js"></script>
+    <h1> test </h1>
+
+    <div id="number-display">Total spend: </div>
+    <div class="dc-data-count">
+        <span class="filter-count"></span>Selected out of 
+        <span class="total-count"></span> records
+        <a href="javascript:dc.filterAll();dc.renderAll()">Reset All</a>
+    </div>
+    <div id="barChart">
+        <div style="text-align:center;">
+            <a href="javascript:barChart.filterAll();dc.redrawAll();" style ="display:none" class="reset">reset</a>
+        </div>
+        
+    </div>
+    <div id="numericBarChart">
+        <div style="text-align:center;">
+            <a href="javascript:numericBarChart.filterAll();dc.redrawAll();" style ="display:none" class="reset">reset</a>
+        </div>       
+    </div>
+    <div id="lineChart">
+        <div style="text-align:center;">
+            <a href="javascript:lineChart.filterAll();dc.redrawAll();" style="display:none", class="reset">reset</a>
+       </div>
+    </div>
+    <div id="stackedChart">
+        <div style="text-align:center;">
+            <a href="javascript:stackedChart.filterAll();dc.redrawAll();" style="display:none", class="reset">reset</a>
+        </div>
+    </div>
+    <div id="pieChart">
+        <h2>Quanity</h2>
+        <div style="text-align:center;">            
+            <a href="javascript:pieChart.filterAll();dc.redrawAll();" style="display:none" class="reset">reset</a>
+    </div>
+    </div>
+    <div id="scatterPlot">
+        <h2>total-tip</h2>
+        <span class="reset" style="display:none;">
+            range: <span class="filter"></span>
+        </span> 
+        <a href="javascript:scatterPlot.filterAll();dc.redrawAll();" style="display:none" class="reset">reset</a>
+    </div>
+    <div id="bubbleChart">
+        <div style="text-align:text;">
+            <a href="javascript:bubbleChart.filterAll(); dc.redrawAll();" style="display:none" class="reset">reset</a>
+        </div>
+    </div>
+
+
+    <div class ="container">
+        <div id="paging">
+            Showing <span id="begin"></span>-<span id="end"></span> of <span id="size"></span> <span id="totalsize"></span>
+            <input id="last" class="btn" type="Button" value="Last" onclick="javascript:last()" />
+            <input id="next" class="btn" type="button" value="Next" onclick="javascript:next()"/>
+        </div>
+        <table id="dataTable" class="table table-hover"></table>
+    </div>
+
+
+    <div id="stackedBarChart">
+        <div style="text-align:center;">
+            <a href="javascript:stackedBarChart.filterAll();dc.redrawAll()" style="display:none" class="reset">reset</a>
+        </div>
+    </div>
+    <div id="boxPlot">
+        <div style="text-align:center;">
+            <a href="javascript:boxPlot.filterAll();dc.redrawAll()" style="display:none" class="reset">reset</a>
+        </div>    
+    </div>
+    <div id="seriesChart">
+        <div style="text-align:center;">
+            <a href="javascript:seriesChart.filterAll();dc.redrawAll();" style="display:none" class="reset">reset</a>
+        </div>    
+    </div>
+    <div id="compChart">
+        <div style="text-align:center;">
+            <a href="javascript:compChart.filterAll();dc.redrawAll();" style="display:none" class="reset">reset</a>
+        </div>    
+    </div>
+    
+    <div id="parentChart">
+       
+    </div>
+    <div id="rangeChart">
+        <div style="text-align:center;">
+            <a href="javascript:volChart.filterAll();dc.redrawAll();" style="display:none" class="reset">reset</a>
+        </div>    
+    </div>
+    
+   
+<script type="text/javascript" src="js/index.js"></script>    
+</body>
+</html>
