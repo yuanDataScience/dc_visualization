@@ -507,6 +507,7 @@ async function plot(){
      * 8. define keyAccessor(), valueAccessor() and seriesAccessor()
      * 9. define x scales
      * 10.define legend, which automatically matches the series by colors
+     * 11.SeriesChart doesn't fit well to brush. Set brushOn(false) for both Series and child charts
      * ********************************************************************************************** */ 
     const runDimension = facts.dimension( d => [d.Expt, d.Run]);
     const runGroup = runDimension.group().reduceSum( d => d.Speed) ;    
@@ -518,7 +519,8 @@ async function plot(){
     seriesChart
         .width(1360).height(300)
         .margins({top:40,bottom:60,right:80,left:60})
-        .chart(chart => new dc.LineChart(chart).curve(d3.curveLinearClosed))
+        .brushOn(false)
+        .chart(chart => new dc.LineChart(chart).curve(d3.curveLinearClosed).brushOn(false))
         .dimension(runDimension)
         .group(runGroup)
         .keyAccessor(d => d.key[1])
